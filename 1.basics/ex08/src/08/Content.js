@@ -5,7 +5,7 @@ function Content() {
     
     return (
         <Fragment>
-            <p>{'Dynamic HTML Rendering'}</p>
+            <p>{'Comment'}</p>
             <Clock />
         </Fragment>
     );
