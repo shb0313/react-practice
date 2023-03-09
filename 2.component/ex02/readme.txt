@@ -2,7 +2,11 @@ ex02: Component Styling
 
 1) Inline Styling
 2) Normal CSS
+   - css-loader options: {modules: false}
+   - npm run debug src=02 css-modules=false
 3) CSS Module 1
+   - css-loader options: {modules: true}
+   - npm run debug src=03 css-modules=true
 4) CSS Module 2
 5) SASS & SCSS
 6) CSS in JS: Styled Component*, Less & Styleable
@@ -26,4 +30,4 @@ src/04: Property Validation
 3. babel.config.json 설정
 4. npm 스크립팅
 5. 테스트 서버 실행
-   $ npm run debug src=(01|02|03|04)
+   $ npm run debug src=(01|02|03|04) css-modules=(true|false)
