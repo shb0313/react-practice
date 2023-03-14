@@ -1,14 +1,14 @@
 import React from "react";
-import styels from './assets/scss/SessionAmPm.scss';
+import styles from './assets/scss/SessionAmPm.scss';
 
 export default function SessionAmPm({session}) {
     return (
-        <div className={styels.AmPm}>
+        <div className={styles.AmPm}>
             <div>
-                <p className={styels[session === 'am' ? 'on' : 'off']}>am</p>
+                <p className={styles[session === 'am' ? 'on' : 'off']}>am</p>
             </div>
             <div>
-                <p className={styels[session === 'pm' ? 'on' : 'off']}>pm</p>
+                <p className={styles[session === 'pm' ? 'on' : 'off']}>pm</p>
             </div>
         </div>
     );
