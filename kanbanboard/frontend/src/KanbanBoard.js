@@ -7,13 +7,20 @@ const KanbanBoard = () => {
     const [cards, setCards] = useState(data);
 
     const changeTaskDone = function(cardNo, taskNo, done) {
-        // console.log(cardNo, taskNo, done);
+        
         const cardIndex = cards.findIndex(card => card.no === cardNo);
         const taskIndex = cards[cardIndex].tasks.findIndex(task => task.no === taskNo);
-        // console.log(cardIndex, taskIndex);
-
-        cards[cardIndex].tasks[taskIndex] = Object.assign({}, cards[cardIndex].tasks[taskIndex], {
-            done: done
+        
+        const newCards = update(cards, {
+            [cardIndex]: {
+                tasks: {
+                    [taskIndex]: {
+                        done: {
+                            $set: done
+                        }
+                    }
+                }
+            }
         });
 
         setCards(cards);
