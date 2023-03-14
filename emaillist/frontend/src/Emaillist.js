@@ -1,12 +1,8 @@
 import React from "react";
 import styles from "./assets/css/Emaillist.css";
 import Email from "./Email";
-import emails from './assets/json/data.json';
 
-const Emaillist = () => {
-
-  console.log(emails);
-
+const Emaillist = ({emails}) => {
   return (
     <ul className={styles.Emaillist}>
       {
