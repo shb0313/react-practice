@@ -1,6 +1,6 @@
 const path = require('path');
 
-module.exports = function(env) {
+module.exports = function(env){
     return {
         mode: "none",
         entry: path.resolve(`src/index.js`),
@@ -20,15 +20,14 @@ module.exports = function(env) {
             },{
                 test: /\.(c|sa|sc)ss$/i,
                 use: [
-                    'style-loader', 
+                    'style-loader',
                     {
                         loader: 'css-loader',
                         options: {
                             modules: true
                         }
-                    }, 
-                    'sass-loader'
-                ]
+                    },
+                    'sass-loader']
             }, {
                 test: /\.(png|gif|jpe?g|svg|ico|tiff?|bmp)$/i,
                 type: 'asset/resource'
@@ -37,10 +36,13 @@ module.exports = function(env) {
         devtool: "eval-source-map",
         devServer: {
             host: '0.0.0.0',
-            port: 9090, 
+            port: 9090,
+            proxy: {
+                '/api': 'http://localhost:8080'
+            },
             liveReload: true,
             compress: true,
-            hot: false
+            hot: false 
         }
     }
 }
