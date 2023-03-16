@@ -1,16 +1,32 @@
 ex02: Component Styling
 
 1) Inline Styling
+
 2) Normal CSS
    - css-loader options: {modules: false}
    - npm run debug src=02 css-modules=false
+   
 3) CSS Module 1
    - css-loader options: {modules: true}
    - npm run debug src=03 css-modules=true
+
 4) CSS Module 2
+   - css-loader options: {modules: true}
+   - $ npm run debug src=04 css-modules=true
+
 5) SASS & SCSS
+   - css-loader options: {modules: true}
+   - $ npm run debug src=05 css-modules=true
+
 6) CSS in JS: Styled Component*, Less & Styleable
-7) React Modal 
+   - $ npm i styled-components
+   - css-loader options: {modules: true}
+   - $ npm run debug src=05 css-modules=true
+
+7) React Modal
+   - 설치
+      $ npm i react-modal
+      
 8) Modal: Material UI
 
 src/01: FoodList: 함수 컴포넌트  
