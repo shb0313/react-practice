@@ -1,16 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './assets/css/App.css'
 import RegisterForm from './RegisterForm';
 import Searchbar from './Searchbar';
 import Emaillist from './Emaillist';
-import data from './assets/json/data.json'
-
 
 function App() {
-    const [emails, setEmails] = useState(data);
+    const [emails, setEmails] = useState([]);
+
     const notifyKeyWordChanged = function (keyword) {
+        
         // keyword가 firstName or lastName or email
-        const newEmails = data.filter(e =>
+        const newEmails = emails.filter(e =>
             e.firstName.indexOf(keyword) !== -1 ||
             e.lastName.indexOf(keyword) !== -1 ||
             e.email.indexOf(keyword) !== -1
@@ -18,10 +18,34 @@ function App() {
         setEmails(newEmails);
     };
 
-    const test = function(keyword){
-        console.log(keyword);
-    };
+    const fetchEmails = async () => {
+        try {
+            const response = await fetch('/api/emaillist', {
+                method: 'get',
+                headers: {
+                    'Accept': 'application/json'
+                }
+            });
+
+            if(!response.ok) {
+                throw new Error(`${response.status} ${response.statusText}`);
+            }
+
+            const json = await response.json();
+            if(json.result !== 'success') {
+                throw new Error(`${json.result} ${json.message}`)
+            }
+
+            setEmails(json.data);
+        } catch(err) {
+            console.log(err.message);
+        }
+    }
     
+    useEffect(()=>{
+        fetchEmails();
+    }, []);
+
     return (
         <div id='App' className='App'>
             <RegisterForm />
