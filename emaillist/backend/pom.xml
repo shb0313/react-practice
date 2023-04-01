@@ -83,7 +83,7 @@
 	</dependencies>
 	
 	<build>
-		<finalName>kanbanboard</finalName>
+		<finalName>emaillist</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
